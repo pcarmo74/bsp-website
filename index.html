@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biz Solutions Partner — AI Automation for Growing Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:        #1A1F2E;
+  --navy-mid:    #252B3B;
+  --navy-light:  #2E3549;
+  --gold:        #C9A84C;
+  --gold-light:  #E8D08A;
+  --gold-pale:   #F5ECD0;
+  --gold-dim:    rgba(201,168,76,0.12);
+  --gold-border: rgba(201,168,76,0.2);
+  --ink:         #0C0B09;
+  --white:       #FDFBF7;
+  --cream:       #F8F4EC;
+  --muted:       rgba(255,255,255,0.5);
+  --muted-mid:   rgba(255,255,255,0.7);
+  --border:      rgba(201,168,76,0.15);
+  --border-light:rgba(255,255,255,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--navy);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(26,31,46,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 52px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo-img { height: 36px; width: auto; }
+.nav-logo-text {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: white; letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.nav-logo-sub { font-size: 10px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold-light); }
+
+.nav-cta {
+  background: var(--gold); color: var(--ink);
+  padding: 10px 24px; font-size: 13px; font-weight: 600;
+  text-decoration: none; transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+  padding: 120px 52px 100px;
+}
+
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+.hero-glow {
+  position: absolute; top: -150px; right: -150px;
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%);
+}
+.hero-glow2 {
+  position: absolute; bottom: -200px; left: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,148,148,0.06) 0%, transparent 65%);
+}
+
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+  animation: fadeUp 0.5s ease both;
+}
+.hero-eyebrow-bar { width: 24px; height: 1px; background: var(--gold); }
+
+.hero-h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(40px, 4.8vw, 64px);
+  font-weight: 800; line-height: 1.06;
+  color: white; margin-bottom: 24px;
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+.hero-h1 .gold { color: var(--gold); }
+.hero-h1 .line { display: block; }
+
+.hero-sub {
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--muted-mid); line-height: 1.8;
+  max-width: 480px; margin-bottom: 44px;
+  animation: fadeUp 0.5s ease 0.2s both;
+}
+.hero-sub strong { font-style: normal; font-weight: 500; color: white; }
+
+.hero-actions {
+  display: flex; gap: 14px; align-items: center;
+  margin-bottom: 52px;
+  animation: fadeUp 0.5s ease 0.3s both;
+}
+.btn-gold {
+  background: var(--gold); color: var(--ink);
+  padding: 15px 32px; font-size: 14px; font-weight: 600;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.3); }
+.btn-ghost {
+  border: 1px solid var(--border); color: var(--muted-mid);
+  padding: 14px 24px; font-size: 13px;
+  text-decoration: none; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-trust {
+  display: flex; gap: 24px; flex-wrap: wrap;
+  animation: fadeUp 0.5s ease 0.4s both;
+}
+.trust-pill {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; color: var(--muted);
+}
+.trust-check { color: var(--gold); font-size: 13px; }
+
+/* ── HERO RIGHT — product preview cards ── */
+.hero-right {
+  display: flex; flex-direction: column; gap: 12px;
+  animation: fadeUp 0.5s ease 0.2s both;
+}
+.preview-card {
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  padding: 20px 22px;
+  display: flex; align-items: center; gap: 16px;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.2s; position: relative; overflow: hidden;
+}
+.preview-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--gold);
+  transform: scaleY(0); transition: transform 0.2s;
+  transform-origin: bottom;
+}
+.preview-card:hover { border-color: var(--gold); background: var(--navy-light); }
+.preview-card:hover::before { transform: scaleY(1); }
+.preview-card:hover .preview-arrow { transform: translateX(4px); }
+
+.preview-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--gold-dim); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.preview-content { flex: 1; }
+.preview-label { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+.preview-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; color: white; margin-bottom: 3px; }
+.preview-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
+.preview-arrow { color: var(--gold); font-size: 16px; flex-shrink: 0; transition: transform 0.2s; }
+
+.preview-plus {
+  background: var(--navy-mid); border: 1px dashed var(--border);
+  padding: 14px 22px;
+  display: flex; align-items: center; gap: 12px;
+}
+.preview-plus-text { font-size: 12px; color: var(--muted); }
+.preview-plus-link { font-size: 12px; color: var(--gold); text-decoration: none; }
+.preview-plus-link:hover { color: var(--gold-light); }
+
+/* ── SECTION BASE ── */
+.section { padding: 100px 52px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.section-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(30px, 3.8vw, 50px);
+  font-weight: 700; line-height: 1.1;
+  color: white; margin-bottom: 16px;
+}
+.section-h2 .gold { color: var(--gold); }
+.section-sub {
+  font-size: 16px; font-weight: 300; font-style: italic;
+  color: var(--muted); line-height: 1.8;
+  max-width: 560px; margin-bottom: 60px;
+}
+
+/* ── PRODUCTS ── */
+.products { background: var(--ink); border-top: 1px solid var(--border); }
+
+.products-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+
+.product-card {
+  background: var(--ink);
+  padding: 44px 36px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: background 0.2s;
+}
+.product-card:hover { background: #141410; }
+
+.product-card-glow {
+  position: absolute; top: -80px; right: -80px;
+  width: 240px; height: 240px; border-radius: 50%;
+  opacity: 0; transition: opacity 0.3s;
+}
+.product-card:hover .product-card-glow { opacity: 1; }
+
+.product-number {
+  font-family: 'Syne', sans-serif;
+  font-size: 72px; font-weight: 800;
+  line-height: 1; margin-bottom: 20px;
+  opacity: 0.06;
+}
+.p1-num { color: #C9A84C; }
+.p2-num { color: #C94B00; }
+.p3-num { color: #0D6E6E; }
+
+.product-icon { font-size: 28px; margin-bottom: 16px; }
+
+.product-tag {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 3px 10px;
+  display: inline-block; margin-bottom: 14px;
+}
+.tag-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--border); }
+.tag-orange { background: rgba(201,75,0,0.12); color: #E8854A; border: 1px solid rgba(201,75,0,0.2); }
+.tag-teal { background: rgba(13,110,110,0.12); color: #4ABFBF; border: 1px solid rgba(13,110,110,0.2); }
+
+.product-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700;
+  color: white; margin-bottom: 12px; line-height: 1.2;
+}
+.product-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; flex: 1; }
+
+.product-bullets { margin-bottom: 32px; }
+.pb-item {
+  display: flex; gap: 10px; margin-bottom: 10px;
+  font-size: 13px; color: var(--muted-mid); line-height: 1.4;
+}
+.pb-dot { flex-shrink: 0; margin-top: 6px; width: 4px; height: 4px; border-radius: 50%; }
+.dot-gold { background: var(--gold); }
+.dot-orange { background: #E8854A; }
+.dot-teal { background: #4ABFBF; }
+
+.product-bottom { margin-top: auto; }
+.product-price {
+  font-size: 12px; color: var(--muted); margin-bottom: 16px;
+  padding-top: 16px; border-top: 1px solid var(--border-light);
+}
+.product-price strong { color: white; font-weight: 500; }
+
+.product-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; text-decoration: none;
+  transition: gap 0.2s;
+}
+.cta-gold { color: var(--gold); }
+.cta-gold:hover { gap: 12px; color: var(--gold-light); }
+.cta-orange { color: #E8854A; }
+.cta-orange:hover { gap: 12px; }
+.cta-teal { color: #4ABFBF; }
+.cta-teal:hover { gap: 12px; }
+
+/* ── FRONTDESKAI BANNER ── */
+.frontdeskai-banner {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 52px;
+}
+.fda-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; gap: 32px;
+  flex-wrap: wrap;
+}
+.fda-badge {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 4px 12px;
+  background: rgba(13,110,110,0.15); color: #4ABFBF;
+  border: 1px solid rgba(13,110,110,0.25); white-space: nowrap;
+}
+.fda-text { flex: 1; }
+.fda-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px; }
+.fda-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.fda-cta {
+  background: transparent; border: 1px solid rgba(13,110,110,0.4);
+  color: #4ABFBF; padding: 10px 22px;
+  font-size: 13px; font-weight: 500; text-decoration: none;
+  white-space: nowrap; transition: all 0.2s;
+}
+.fda-cta:hover { background: rgba(13,110,110,0.15); border-color: #4ABFBF; }
+
+/* ── HOW BSP WORKS ── */
+.how { background: var(--navy); }
+
+.how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.how-step {
+  background: var(--navy);
+  padding: 36px 28px;
+  transition: background 0.2s;
+}
+.how-step:hover { background: var(--navy-mid); }
+.how-step-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 48px; font-weight: 800;
+  color: rgba(201,168,76,0.12); line-height: 1; margin-bottom: 16px;
+}
+.how-step-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; color: white; margin-bottom: 10px; }
+.how-step-desc { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+/* ── WHY BSP ── */
+.why { background: var(--navy-mid); }
+
+.why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.why-card {
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, background 0.2s;
+}
+.why-card:hover { border-color: var(--gold); background: var(--gold-dim); }
+.why-icon { font-size: 24px; margin-bottom: 16px; display: block; }
+.why-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; color: white; margin-bottom: 10px; }
+.why-desc { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+/* ── ABOUT PABLO ── */
+.about {
+  background: var(--ink);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 72px 52px;
+}
+.about-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; gap: 60px;
+}
+.about-bar {
+  width: 3px; height: 80px; background: var(--gold); flex-shrink: 0;
+}
+.about-text { flex: 1; }
+.about-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: white; margin-bottom: 6px; }
+.about-role { font-size: 12px; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+.about-bio { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 680px; }
+.about-linkedin {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 16px; font-size: 12px; color: var(--gold);
+  text-decoration: none; transition: color 0.2s;
+  letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
+}
+.about-linkedin:hover { color: var(--gold-light); }
+
+/* ── CONTACT ── */
+.contact { background: var(--navy-mid); }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-left { }
+.contact-info { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; }
+.ci-item { display: flex; gap: 16px; align-items: flex-start; }
+.ci-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: var(--gold-dim); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.ci-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.ci-value { font-size: 14px; color: var(--muted-mid); }
+.ci-value a { color: var(--gold-light); text-decoration: none; }
+.ci-value a:hover { color: var(--gold); }
+
+/* ── CONTACT FORM ── */
+.contact-form {
+  background: var(--navy);
+  border: 1px solid var(--border);
+  padding: 40px;
+}
+.form-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: white; margin-bottom: 6px; }
+.form-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-group { margin-bottom: 14px; }
+.form-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 12px 16px;
+  background: var(--navy-mid); border: 1px solid var(--border);
+  color: white; font-size: 13px;
+  font-family: 'Instrument Sans', sans-serif; outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+.form-select option { background: var(--navy-mid); }
+.form-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+.form-submit {
+  width: 100%; background: var(--gold); color: var(--ink);
+  padding: 15px; border: none; cursor: pointer;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+  font-family: 'Instrument Sans', sans-serif;
+  transition: all 0.2s; margin-top: 4px;
+}
+.form-submit:hover { background: var(--gold-light); }
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: var(--gold); padding: 72px 52px;
+  text-align: center;
+}
+.cta-band-inner { max-width: 700px; margin: 0 auto; }
+.cta-band-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800; color: var(--ink); margin-bottom: 16px; line-height: 1.1;
+}
+.cta-band-sub { font-size: 16px; color: rgba(12,11,9,0.65); margin-bottom: 36px; line-height: 1.7; font-style: italic; }
+.cta-band-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-navy {
+  background: var(--navy); color: white;
+  padding: 15px 32px; font-size: 14px; font-weight: 600;
+  text-decoration: none; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-navy:hover { background: var(--navy-light); transform: translateY(-2px); }
+.btn-outline-navy {
+  border: 2px solid rgba(26,31,46,0.3); color: var(--navy);
+  padding: 13px 28px; font-size: 13px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s;
+}
+.btn-outline-navy:hover { border-color: var(--navy); background: rgba(26,31,46,0.08); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink); padding: 60px 52px 40px;
+  border-top: 1px solid var(--border);
+}
+.footer-top {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 48px;
+  padding-bottom: 48px; border-bottom: 1px solid var(--border-light);
+}
+.footer-logo-area { }
+.footer-logo-name {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: white; letter-spacing: 0.04em; margin-bottom: 3px;
+}
+.footer-logo-tagline { font-size: 10px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+.footer-desc { font-size: 12px; color: var(--muted); line-height: 1.75; max-width: 260px; margin-bottom: 20px; }
+.footer-email { font-size: 12px; color: var(--gold-light); text-decoration: none; }
+.footer-email:hover { color: var(--gold); }
+
+.footer-col-title { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 12px; color: var(--muted); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; line-height: 1.4; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-col .external { display: flex; align-items: center; gap: 6px; }
+
+.footer-bottom-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 11px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--muted); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 20px 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .about-inner { flex-direction: column; gap: 24px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .section { padding: 60px 20px; }
+  .about { padding: 48px 20px; }
+  .frontdeskai-banner, .cta-band { padding: 40px 20px; }
+  footer { padding: 40px 20px 28px; }
+  .footer-bottom-bar { flex-direction: column; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div>
+      <div class="nav-logo-text">BIZ SOLUTIONS PARTNER</div>
+      <div class="nav-logo-sub">Consulting Services</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#products">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="#why">Why BSP</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Book a Call →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-bar"></div>
+        AI Automation · Calgary, AB · Serving North America
+      </div>
+      <h1 class="hero-h1">
+        <span class="line">Productized AI</span>
+        <span class="line">automation for</span>
+        <span class="line gold">growing businesses.</span>
+      </h1>
+      <p class="hero-sub">
+        We build done-for-you automation systems that <strong>capture more leads, qualify better prospects, and help your team do more with less</strong> — delivered as focused products for specific industries.
+      </p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-gold">
+          Explore Our Products →
+        </a>
+        <a href="#contact" class="btn-ghost">Book a Call</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-pill"><span class="trust-check">✓</span> Done-for-you setup</div>
+        <div class="trust-pill"><span class="trust-check">✓</span> No tech skills needed</div>
+        <div class="trust-pill"><span class="trust-check">✓</span> Bilingual EN/ES</div>
+        <div class="trust-pill"><span class="trust-check">✓</span> Calgary-based</div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <a href="bsp_lead_response_landing.html" class="preview-card">
+        <div class="preview-icon">⚡</div>
+        <div class="preview-content">
+          <div class="preview-label">For home services & trades</div>
+          <div class="preview-name">Lead Response Automation</div>
+          <div class="preview-desc">Instant AI reply to every web form submission — capture leads before competitors respond</div>
+        </div>
+        <div class="preview-arrow">→</div>
+      </a>
+      <a href="permitleads_landing.html" class="preview-card">
+        <div class="preview-icon">🏗️</div>
+        <div class="preview-content">
+          <div class="preview-label">For renovation contractors</div>
+          <div class="preview-name">PermitLeads</div>
+          <div class="preview-desc">Monitor building permits in your city and reach homeowners automatically — before they search Google</div>
+        </div>
+        <div class="preview-arrow">→</div>
+      </a>
+      <a href="ifa_lead_intelligence_landing.html" class="preview-card">
+        <div class="preview-icon">📊</div>
+        <div class="preview-content">
+          <div class="preview-label">For independent financial advisors</div>
+          <div class="preview-name">IFA Lead Intelligence</div>
+          <div class="preview-desc">Score leads, qualify urgency, and brief advisors before every discovery call — automatically</div>
+        </div>
+        <div class="preview-arrow">→</div>
+      </a>
+      <div class="preview-plus">
+        <div class="preview-plus-text">Also: AI phone receptionist for service businesses —</div>
+        <a href="frontdeskai_landing.html" class="preview-plus-link">Meet FrontDeskAI →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products" id="products">
+  <div class="section-inner">
+    <div class="section-eyebrow">Our products</div>
+    <h2 class="section-h2">Focused solutions.<br><span class="gold">Real results.</span></h2>
+    <p class="section-sub">Every BSP product is built for a specific industry and a specific problem. No generic automation. No long consulting engagements before you see value.</p>
+    <div class="products-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-card-glow" style="background:radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%);"></div>
+        <div class="product-number p1-num">01</div>
+        <div class="product-icon">⚡</div>
+        <div class="product-tag tag-gold">Home Services & Trades</div>
+        <div class="product-name">Lead Response Automation</div>
+        <div class="product-desc">Every time someone fills out your contact form, an AI-powered response goes out in under 60 seconds — while you alert the owner with full lead details. Stop losing jobs to slow follow-up.</div>
+        <div class="product-bullets">
+          <div class="pb-item"><span class="pb-dot dot-gold"></span><span>AI responds to web form leads in &lt;60 seconds</span></div>
+          <div class="pb-item"><span class="pb-dot dot-gold"></span><span>Instant owner notification with full lead details</span></div>
+          <div class="pb-item"><span class="pb-dot dot-gold"></span><span>Works with any website — no rebuild required</span></div>
+          <div class="pb-item"><span class="pb-dot dot-gold"></span><span>We set it up — live in 48 hours</span></div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price"><strong>$597 setup</strong> · $197/month retainer</div>
+          <a href="bsp_lead_response_landing.html" class="product-cta cta-gold">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-card-glow" style="background:radial-gradient(circle, rgba(201,75,0,0.1) 0%, transparent 65%);"></div>
+        <div class="product-number p2-num">02</div>
+        <div class="product-icon">🏗️</div>
+        <div class="product-tag tag-orange">Renovation Contractors</div>
+        <div class="product-name">PermitLeads</div>
+        <div class="product-desc">Building permits are public signals that a homeowner has approved budget and an active project. PermitLeads monitors permit filings in your city and reaches out automatically — before your competitors even know the permit exists.</div>
+        <div class="product-bullets">
+          <div class="pb-item"><span class="pb-dot dot-orange"></span><span>24/7 permit monitoring in your city</span></div>
+          <div class="pb-item"><span class="pb-dot dot-orange"></span><span>AI outreach within 60 minutes of filing</span></div>
+          <div class="pb-item"><span class="pb-dot dot-orange"></span><span>Filter by project type and minimum value</span></div>
+          <div class="pb-item"><span class="pb-dot dot-orange"></span><span>Full lead dashboard and tracking</span></div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price"><strong>$997 setup</strong> · From $297/month</div>
+          <a href="permitleads_landing.html" class="product-cta cta-orange">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-card-glow" style="background:radial-gradient(circle, rgba(13,110,110,0.1) 0%, transparent 65%);"></div>
+        <div class="product-number p3-num">03</div>
+        <div class="product-icon">📊</div>
+        <div class="product-tag tag-teal">Independent Financial Advisors</div>
+        <div class="product-name">IFA Lead Intelligence</div>
+        <div class="product-desc">An interactive assessment tool that scores your prospects across 5 dimensions of retirement readiness — then delivers a structured AI intelligence brief to your inbox before every discovery call. Walk in prepared, not cold.</div>
+        <div class="product-bullets">
+          <div class="pb-item"><span class="pb-dot dot-teal"></span><span>6-question assessment scores leads 0–100</span></div>
+          <div class="pb-item"><span class="pb-dot dot-teal"></span><span>AI brief delivered in under 3 minutes</span></div>
+          <div class="pb-item"><span class="pb-dot dot-teal"></span><span>Opening question + objection prediction included</span></div>
+          <div class="pb-item"><span class="pb-dot dot-teal"></span><span>CASL-compliant · Built for Canadian IFAs</span></div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price"><strong>Pricing on request</strong> · Book a discovery call</div>
+          <a href="ifa_lead_intelligence_landing.html" class="product-cta cta-teal">Learn More →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FRONTDESKAI BANNER -->
+<div class="frontdeskai-banner">
+  <div class="fda-inner">
+    <div class="fda-badge">Complementary Service</div>
+    <div class="fda-text">
+      <div class="fda-title">Also need your phones covered? Meet FrontDeskAI.</div>
+      <div class="fda-desc">An AI phone receptionist that answers every call, books appointments, and handles inquiries 24/7 — built for the same service businesses we serve. Available in English and Spanish.</div>
+    </div>
+    <a href="frontdeskai_landing.html" class="fda-cta">Visit FrontDeskAI →</a>
+  </div>
+</div>
+
+<!-- HOW BSP WORKS -->
+<section class="section how" id="how">
+  <div class="section-inner">
+    <div class="section-eyebrow">How it works</div>
+    <h2 class="section-h2">Simple to buy.<br><span class="gold">Fast to deliver.</span></h2>
+    <p class="section-sub">BSP products are designed to get you results quickly — no long discovery phases, no six-month onboarding. You buy, we build, you're live.</p>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <div class="how-step-title">Choose your product</div>
+        <div class="how-step-desc">Browse our three products and pick the one that matches your industry and your most pressing problem. Each has a dedicated page with full details, pricing, and a demo.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <div class="how-step-title">Order or book a call</div>
+        <div class="how-step-desc">For most products you can order directly. For the IFA system or anything custom, we start with a 30-minute discovery call to scope the engagement and confirm fit.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <div class="how-step-title">We build it for you</div>
+        <div class="how-step-desc">No technical work on your end. We handle the full setup — connecting your tools, configuring the AI, testing everything — and deliver it ready to use within 48–72 hours.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">04</div>
+        <div class="how-step-title">It runs. You grow.</div>
+        <div class="how-step-desc">The monthly retainer keeps everything monitored, maintained, and improving. If something changes on your end, we handle it. You focus on the work that actually moves your business forward.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BSP -->
+<section class="section why" id="why">
+  <div class="section-inner">
+    <div class="section-eyebrow">Why Biz Solutions Partner</div>
+    <h2 class="section-h2">Built by an operator,<br><span class="gold">for operators.</span></h2>
+    <p class="section-sub">Every product we build comes from real operational experience — not theory. We've worked inside the businesses that face these problems.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">🎯</span>
+        <div class="why-title">Industry-specific, not generic</div>
+        <div class="why-desc">Every BSP product is built for one specific industry and one specific problem. No broad "AI automation for everyone" promises. We go deep on what matters to your business.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🔧</span>
+        <div class="why-title">Done-for-you, not DIY</div>
+        <div class="why-desc">You don't need to learn any tools, write any prompts, or configure anything. We build it, test it, and hand it over working. Your job is to use it — not build it.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🌎</span>
+        <div class="why-title">Bilingual English & Spanish</div>
+        <div class="why-desc">All BSP systems are available in English and Spanish natively — not as an add-on or a translation. We serve Spanish-speaking businesses and clients with the same depth as English-speaking ones.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📍</span>
+        <div class="why-title">Calgary-based, North America-ready</div>
+        <div class="why-desc">We're based in Calgary, AB and serve clients across Canada and the United States. Local enough to meet in person, experienced enough to deploy remotely at any scale.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">⚙️</span>
+        <div class="why-title">Real tools, real integrations</div>
+        <div class="why-desc">We build with Claude, GHL, Make.com, Google Workspace, and Twilio — not proprietary black boxes. Your systems work with the tools you already use or trust.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📈</span>
+        <div class="why-title">Retainer model = ongoing value</div>
+        <div class="why-desc">The monthly retainer isn't just maintenance — it's continuous improvement. As your business evolves and AI capabilities grow, your systems evolve with them. You're never left with something stale.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT PABLO -->
+<div class="about">
+  <div class="about-inner">
+    <div class="about-bar"></div>
+    <div class="about-text">
+      <div class="about-name">Pablo Carmona</div>
+      <div class="about-role">Founder · Biz Solutions Partner & Infinity AI Solutions</div>
+      <div class="about-bio">12+ years in operations, channel management, and CRM across technology and enterprise. Hands-on experience with Claude, GHL, Make.com, Google Workspace, and AI agent frameworks. Fluent in English and Spanish. Based in Calgary, AB — building automation systems that make growing businesses more effective at every level.</div>
+      <a href="https://linkedin.com/in/pablocarmona-ai" target="_blank" class="about-linkedin">
+        View LinkedIn Profile →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="section-eyebrow">Get in touch</div>
+        <h2 class="section-h2">Let's find the right<br><span class="gold">solution for you.</span></h2>
+        <p class="section-sub" style="margin-bottom: 0;">Not sure which product fits your situation? Book a 20-minute call and we'll map it out together — no pitch, no obligation.</p>
+        <div class="contact-info">
+          <div class="ci-item">
+            <div class="ci-icon">📧</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value"><a href="mailto:pablo@bizsolutionspartner.com">pablo@bizsolutionspartner.com</a></div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-value">Calgary, Alberta, Canada<br>Serving clients across North America</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">🌐</div>
+            <div>
+              <div class="ci-label">Languages</div>
+              <div class="ci-value">English · Spanish (Fluent)</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">⏱️</div>
+            <div>
+              <div class="ci-label">Response time</div>
+              <div class="ci-value">Within 4 business hours</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="contact-form">
+          <div class="form-title">Send a message</div>
+          <div class="form-sub">Fill in the form and we'll get back to you within 4 business hours. Want to talk sooner? Email directly.</div>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First name</label>
+                <input type="text" class="form-input" placeholder="Your first name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last name</label>
+                <input type="text" class="form-input" placeholder="Your last name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email address</label>
+              <input type="email" class="form-input" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Business type</label>
+              <select class="form-select">
+                <option value="" disabled selected>Select your industry</option>
+                <option>Home services / Trades</option>
+                <option>Renovation / Construction</option>
+                <option>Independent Financial Advisor</option>
+                <option>Other professional services</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">I'm interested in</label>
+              <select class="form-select">
+                <option value="" disabled selected>Select a product</option>
+                <option>Lead Response Automation</option>
+                <option>PermitLeads</option>
+                <option>IFA Lead Intelligence</option>
+                <option>FrontDeskAI (AI Receptionist)</option>
+                <option>Not sure — need guidance</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message (optional)</label>
+              <textarea class="form-textarea" placeholder="Tell us about your business and what you're trying to solve..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <h2 class="cta-band-h2">Ready to stop losing leads to slow follow-up?</h2>
+    <p class="cta-band-sub">Pick a product, book a call, or just send a message. We'll find the right fit and get you live within 48 hours.</p>
+    <div class="cta-band-actions">
+      <a href="#products" class="btn-navy">Browse Products →</a>
+      <a href="mailto:pablo@bizsolutionspartner.com" class="btn-outline-navy">Email Directly</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-area">
+      <div class="footer-logo-name">BIZ SOLUTIONS PARTNER</div>
+      <div class="footer-logo-tagline">Consulting Services · Calgary, AB</div>
+      <div class="footer-desc">Productized AI automation for growing businesses. Done-for-you systems that capture more leads, qualify better prospects, and help your team do more — in English and Spanish.</div>
+      <a href="mailto:pablo@bizsolutionspartner.com" class="footer-email">pablo@bizsolutionspartner.com</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Products</div>
+      <a href="bsp_lead_response_landing.html">Lead Response Automation</a>
+      <a href="permitleads_landing.html">PermitLeads</a>
+      <a href="ifa_lead_intelligence_landing.html">IFA Lead Intelligence</a>
+      <a href="frontdeskai_landing.html" class="external">FrontDeskAI ↗</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <a href="#how">How it works</a>
+      <a href="#why">Why BSP</a>
+      <a href="#contact">Contact</a>
+      <a href="https://linkedin.com/in/pablocarmona-ai" target="_blank" class="external">LinkedIn ↗</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Infinity AI Solutions</div>
+      <a href="https://infinityaisolutions.com" target="_blank" class="external">infinityaisolutions.com ↗</a>
+      <a href="#">AI Operator Training</a>
+      <a href="#">AI Automation Consulting</a>
+      <a href="#">AI Toolkit & Resources</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="footer-copy">© 2025 Biz Solutions Partner. All rights reserved. Based in Calgary, Alberta, Canada.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Message sent! We\'ll be in touch within 4 hours.';
+  btn.style.background = '#1D9E75';
+  btn.style.color = 'white';
+  btn.disabled = true;
+}
+</script>
+
+</body>
+</html>
