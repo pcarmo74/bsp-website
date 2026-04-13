@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permit Readiness Tool — Turn Your Website Into a Lead Machine | BSP</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange:     #C94B00;
+  --orange-mid: #E05510;
+  --orange-lt:  #FF6B2B;
+  --orange-dim: rgba(201,75,0,0.12);
+  --amber:      #E8A020;
+  --charcoal:   #0E0E0C;
+  --char-mid:   #1A1A16;
+  --char-lt:    #252520;
+  --char-ltr:   #2E2E28;
+  --ink:        #0A0A08;
+  --warm-gray:  #7A7870;
+  --warm-lt:    #B8B5AC;
+  --border:     rgba(201,75,0,0.18);
+  --border-lt:  rgba(255,255,255,0.07);
+  --cream:      #F5F0E8;
+  --white:      #FDFBF7;
+  --green:      #2A7A4A;
+  --green-lt:   #3DAF6A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--charcoal);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(14,14,12,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  height: 64px; padding: 0 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 30px; height: 30px; background: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800; color: white;
+}
+.nav-logo-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: white; line-height: 1.2;
+}
+.nav-logo-sub { font-size: 9px; color: var(--orange); letter-spacing: 0.14em; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--warm-gray); text-decoration: none; transition: color 0.2s; letter-spacing: 0.04em; }
+.nav-links a:hover { color: var(--orange-lt); }
+.nav-cta {
+  background: var(--orange); color: white;
+  padding: 10px 22px; font-size: 13px; font-weight: 600;
+  text-decoration: none; transition: all 0.2s;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.nav-cta:hover { background: var(--orange-mid); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+  padding: 120px 52px 80px;
+}
+
+.hero-texture {
+  position: absolute; inset: 0; opacity: 0.025;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,75,0,0.5) 39px, rgba(201,75,0,0.5) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(201,75,0,0.5) 39px, rgba(201,75,0,0.5) 40px);
+}
+.hero-glow {
+  position: absolute; top: -100px; right: -100px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,75,0,0.15) 0%, transparent 65%);
+}
+
+.hero-inner {
+  max-width: 1140px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+  position: relative; z-index: 1;
+}
+
+.hero-tag {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 24px;
+  animation: fadeUp 0.5s ease both;
+}
+.hero-tag-line { width: 28px; height: 2px; background: var(--orange); }
+
+.hero-h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(52px, 6vw, 84px);
+  font-weight: 900; line-height: 0.95;
+  text-transform: uppercase;
+  color: white; margin-bottom: 24px;
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+.hero-h1 .orange { color: var(--orange); }
+.hero-h1 .line { display: block; }
+
+.hero-sub {
+  font-size: 17px; font-weight: 300;
+  color: rgba(255,255,255,0.6); line-height: 1.75;
+  max-width: 480px; margin-bottom: 40px;
+  animation: fadeUp 0.5s ease 0.2s both;
+}
+.hero-sub strong { color: white; font-weight: 500; }
+
+.hero-actions {
+  display: flex; gap: 14px; align-items: center;
+  margin-bottom: 48px;
+  animation: fadeUp 0.5s ease 0.3s both;
+}
+.btn-orange {
+  background: var(--orange); color: white;
+  padding: 16px 32px; font-size: 14px; font-weight: 700;
+  text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: all 0.2s;
+}
+.btn-orange:hover { background: var(--orange-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,75,0,0.4); }
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7);
+  padding: 15px 24px; font-size: 13px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s; letter-spacing: 0.04em;
+}
+.btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+.hero-proof {
+  display: flex; gap: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+  animation: fadeUp 0.5s ease 0.4s both;
+}
+.proof-item { padding-right: 32px; margin-right: 32px; border-right: 1px solid var(--border-lt); }
+.proof-item:last-child { border-right: none; }
+.proof-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 36px; font-weight: 800;
+  color: var(--orange); line-height: 1; margin-bottom: 4px;
+}
+.proof-lbl { font-size: 11px; color: var(--warm-gray); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
+
+/* ── QUESTIONNAIRE MOCKUP ── */
+.hero-right { animation: fadeUp 0.5s ease 0.2s both; }
+
+.permit-widget {
+  background: var(--char-mid);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+}
+.pw-header {
+  background: var(--orange);
+  padding: 14px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pw-header-left { }
+.pw-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.1em; color: white;
+}
+.pw-subtitle { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px; }
+.pw-badge {
+  background: rgba(0,0,0,0.25); color: white;
+  font-size: 10px; font-weight: 700; padding: 4px 10px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.pw-progress {
+  background: var(--char-lt); padding: 12px 20px;
+  display: flex; gap: 4px; align-items: center;
+  border-bottom: 1px solid var(--border-lt);
+}
+.prog-step {
+  flex: 1; height: 3px; border-radius: 2px;
+  background: rgba(255,255,255,0.1);
+}
+.prog-step.done { background: var(--orange); }
+.prog-step.active { background: var(--orange-lt); }
+.prog-label { font-size: 11px; color: var(--warm-gray); margin-left: 8px; white-space: nowrap; }
+
+.pw-body { padding: 20px; }
+.pw-question-num {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 8px;
+}
+.pw-question-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em; color: white; margin-bottom: 16px; line-height: 1.2;
+}
+.pw-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.pw-option {
+  padding: 11px 14px; border: 1px solid var(--border-lt);
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer; transition: all 0.15s;
+  font-size: 13px; color: rgba(255,255,255,0.7);
+}
+.pw-option.selected {
+  border-color: var(--orange); background: var(--orange-dim);
+  color: white;
+}
+.pw-option-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.3); flex-shrink: 0;
+}
+.pw-option.selected .pw-option-dot {
+  background: var(--orange); border-color: var(--orange);
+}
+
+.pw-counter {
+  background: var(--char-lt); border: 1px solid var(--border);
+  padding: 14px 16px; display: flex; justify-content: space-between; align-items: center;
+}
+.pw-counter-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px; font-weight: 900; color: var(--orange); line-height: 1;
+}
+.pw-counter-lbl { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.08em; }
+.pw-counter-right { text-align: right; }
+
+.pw-footer {
+  padding: 14px 20px; border-top: 1px solid var(--border-lt);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pw-back { font-size: 12px; color: var(--warm-gray); cursor: pointer; }
+.pw-next {
+  background: var(--orange); color: white;
+  padding: 10px 20px; font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; border: none; cursor: pointer;
+}
+
+.widget-badge {
+  margin-top: 12px; display: flex; gap: 8px; align-items: center;
+  font-size: 11px; color: var(--warm-gray);
+}
+.wb-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-lt); }
+
+/* ── BAND ── */
+.band {
+  background: var(--orange); padding: 20px 52px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  flex-wrap: wrap;
+}
+.band-items { display: flex; gap: 48px; }
+.band-item { text-align: center; }
+.band-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 36px; font-weight: 900; color: white; line-height: 1;
+}
+.band-lbl { font-size: 11px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.06em; }
+.band-cta {
+  background: white; color: var(--orange);
+  padding: 14px 28px; font-size: 13px; font-weight: 700;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em;
+  transition: all 0.2s; white-space: nowrap;
+}
+.band-cta:hover { background: var(--cream); }
+
+/* ── SECTIONS ── */
+.section { padding: 100px 52px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--orange);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+}
+.section-tag::before { content: ''; width: 20px; height: 2px; background: var(--orange); }
+.section-h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 900; line-height: 1; text-transform: uppercase;
+  color: white; margin-bottom: 16px;
+}
+.section-h2 .orange { color: var(--orange); }
+.section-sub {
+  font-size: 16px; font-weight: 300;
+  color: rgba(255,255,255,0.55); line-height: 1.8;
+  max-width: 560px; margin-bottom: 60px;
+}
+
+/* ── PROBLEM ── */
+.problem { background: var(--char-mid); }
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border-lt); border: 1px solid var(--border-lt); }
+.problem-card {
+  background: var(--char-mid); padding: 40px 32px;
+  transition: background 0.2s;
+}
+.problem-card:hover { background: var(--char-lt); }
+.prob-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 72px; font-weight: 900; color: rgba(201,75,0,0.1);
+  line-height: 1; margin-bottom: 12px;
+}
+.prob-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em; color: white; margin-bottom: 10px;
+}
+.prob-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; }
+
+/* ── HOW IT WORKS ── */
+.how { background: var(--charcoal); }
+.how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+
+.how-steps { }
+.how-step {
+  display: flex; gap: 20px; margin-bottom: 32px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border-lt);
+}
+.how-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.step-num-box {
+  width: 44px; height: 44px; background: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900; color: white; flex-shrink: 0;
+}
+.step-content { }
+.step-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em; color: white; margin-bottom: 8px;
+}
+.step-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; }
+
+.how-result {
+  background: var(--char-mid); border: 1px solid var(--border);
+  padding: 32px;
+}
+.hr-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+}
+.hr-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 700; text-transform: uppercase;
+  color: white; margin-bottom: 6px;
+}
+.hr-sub { font-size: 12px; color: var(--warm-gray); margin-bottom: 20px; }
+
+.result-row { margin-bottom: 12px; }
+.rr-label { font-size: 10px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+.rr-value { font-size: 14px; color: white; font-weight: 500; }
+
+.result-divider { height: 1px; background: var(--border-lt); margin: 16px 0; }
+
+.result-brief {
+  background: rgba(201,75,0,0.12); border-left: 3px solid var(--orange);
+  padding: 12px 14px;
+}
+.rb-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
+.rb-text { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.65; font-style: italic; }
+
+/* ── WHAT YOU GET ── */
+.features { background: var(--char-mid); }
+.features-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border-lt); border: 1px solid var(--border-lt); }
+.feat-card {
+  background: var(--char-mid); padding: 36px 28px;
+  transition: background 0.2s; position: relative;
+}
+.feat-card:hover { background: var(--char-lt); }
+.feat-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--orange); transform: scaleX(0); transition: transform 0.2s; transform-origin: left;
+}
+.feat-card:hover::after { transform: scaleX(1); }
+.feat-icon { font-size: 26px; margin-bottom: 16px; display: block; }
+.feat-num {
+  position: absolute; top: 20px; right: 22px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--orange); opacity: 0.5;
+}
+.feat-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em; color: white; margin-bottom: 10px;
+}
+.feat-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; }
+
+/* ── UPSELL ── */
+.upsell { background: var(--charcoal); }
+.upsell-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.upsell-card {
+  border: 1px solid var(--border-lt); padding: 32px 28px;
+  transition: border-color 0.2s;
+}
+.upsell-card:hover { border-color: var(--orange); }
+.upsell-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 3px 10px;
+  display: inline-block; margin-bottom: 14px;
+}
+.tag-add { background: var(--orange-dim); color: var(--orange); border: 1px solid var(--border); }
+.upsell-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em; color: white; margin-bottom: 10px;
+}
+.upsell-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 20px; }
+.upsell-price { font-size: 13px; color: var(--warm-gray); }
+.upsell-price strong { color: white; }
+
+.upsell-total {
+  background: var(--orange); padding: 28px 32px;
+  margin-top: 20px;
+}
+.ut-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.8); margin-bottom: 10px;
+}
+.ut-row { display: flex; justify-content: space-between; align-items: center; }
+.ut-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px; font-weight: 900; text-transform: uppercase;
+  color: white; line-height: 1;
+}
+.ut-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 44px; font-weight: 900; color: white;
+}
+
+/* ── DEMO CTA ── */
+.demo-section {
+  background: var(--char-mid); padding: 80px 52px;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.demo-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+}
+.demo-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.demo-tag::before { content: ''; width: 20px; height: 2px; background: var(--orange); }
+.demo-h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px,4vw,52px); font-weight: 900; text-transform: uppercase; line-height: 1; color: white; margin-bottom: 16px; }
+.demo-h2 .orange { color: var(--orange); }
+.demo-sub { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 28px; }
+.demo-url {
+  background: var(--char-lt); border: 1px solid var(--border);
+  padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 20px;
+}
+.demo-url-text { font-size: 14px; color: var(--orange); font-family: monospace; }
+.demo-url-copy { font-size: 11px; color: var(--warm-gray); cursor: pointer; transition: color 0.2s; }
+.demo-url-copy:hover { color: white; }
+.demo-cta-btns { display: flex; gap: 14px; }
+
+.demo-right { }
+.demo-site-preview {
+  background: var(--charcoal); border: 1px solid var(--border-lt);
+  overflow: hidden;
+}
+.dsb { background: var(--char-lt); padding: 10px 14px; display: flex; gap: 6px; border-bottom: 1px solid var(--border-lt); }
+.ds-dot { width: 10px; height: 10px; border-radius: 50%; }
+.ds-r { background: #FF6058; } .ds-y { background: #FFBE2E; } .ds-g { background: #2ACA41; }
+.ds-url { flex: 1; background: var(--charcoal); border-radius: 3px; padding: 4px 10px; font-size: 11px; color: var(--warm-gray); }
+.demo-site-body { padding: 20px; }
+.ds-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.ds-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; }
+.ds-nav-items { display: flex; gap: 12px; }
+.ds-nav-item { width: 36px; height: 6px; background: var(--char-ltr); border-radius: 2px; }
+.ds-nav-btn { width: 60px; height: 22px; background: var(--orange); border-radius: 2px; }
+
+.ds-hero { margin-bottom: 16px; }
+.ds-h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; text-transform: uppercase; color: white; line-height: 1; margin-bottom: 4px; }
+.ds-h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; text-transform: uppercase; color: var(--orange); line-height: 1; margin-bottom: 12px; }
+.ds-p { width: 80%; height: 6px; background: var(--char-ltr); border-radius: 2px; margin-bottom: 5px; }
+.ds-p.sm { width: 60%; }
+.ds-cta { display: inline-block; width: 110px; height: 28px; background: var(--orange); border-radius: 2px; margin-top: 8px; }
+
+.ds-widget {
+  background: var(--char-mid); border: 1px solid var(--border);
+  padding: 14px; margin-top: 14px;
+}
+.ds-widget-h { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: white; margin-bottom: 10px; display: flex; justify-content: space-between; }
+.ds-widget-h span { color: var(--orange); }
+.ds-q { font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 8px; font-weight: 500; }
+.ds-opts { display: flex; flex-direction: column; gap: 5px; }
+.ds-opt { height: 22px; background: var(--char-lt); border: 1px solid var(--border-lt); display: flex; align-items: center; padding: 0 8px; }
+.ds-opt.sel { border-color: var(--orange); background: var(--orange-dim); }
+.ds-opt-dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--border-lt); margin-right: 6px; flex-shrink: 0; }
+.ds-opt.sel .ds-opt-dot { background: var(--orange); border-color: var(--orange); }
+.ds-opt-text { font-size: 10px; color: rgba(255,255,255,0.6); }
+.ds-opt.sel .ds-opt-text { color: white; }
+
+/* ── PRICING ── */
+.pricing { background: var(--charcoal); }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border-lt); border: 1px solid var(--border-lt); max-width: 780px; margin: 0 auto; }
+.price-card { background: var(--charcoal); padding: 44px 36px; }
+.price-card.featured { background: var(--orange); }
+.pc-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; color: rgba(255,255,255,0.7); }
+.price-card.featured .pc-tag { color: rgba(255,255,255,0.9); }
+.pc-name { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; color: white; margin-bottom: 6px; }
+.pc-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+.price-card.featured .pc-sub { color: rgba(255,255,255,0.8); }
+.pc-price { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 900; color: white; line-height: 1; }
+.pc-period { font-size: 16px; font-weight: 400; }
+.pc-note { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; margin-bottom: 28px; }
+.price-card.featured .pc-note { color: rgba(255,255,255,0.8); }
+.pc-divider { height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 24px; }
+.pc-feat { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+.price-card.featured .pc-feat { color: rgba(255,255,255,0.9); }
+.pf-check { color: white; flex-shrink: 0; opacity: 0.8; }
+.pc-cta {
+  display: block; text-align: center; margin-top: 28px;
+  padding: 14px; font-size: 13px; font-weight: 700;
+  text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+  transition: all 0.2s;
+}
+.cta-white { background: white; color: var(--orange); }
+.cta-white:hover { background: var(--cream); }
+.cta-border { border: 1px solid rgba(255,255,255,0.25); color: white; }
+.cta-border:hover { border-color: var(--orange); color: var(--orange); }
+
+.pricing-note { text-align: center; margin-top: 28px; font-size: 13px; color: var(--warm-gray); }
+.pricing-note a { color: var(--orange); text-decoration: none; }
+
+/* ── CTA ── */
+.cta-section {
+  background: var(--ink); padding: 110px 52px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 700px 400px at 50% 50%, rgba(201,75,0,0.12) 0%, transparent 65%);
+}
+.cta-inner { position: relative; }
+.cta-h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 900; text-transform: uppercase; line-height: 0.95;
+  color: white; margin-bottom: 20px;
+}
+.cta-h2 .orange { color: var(--orange); }
+.cta-sub { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto 44px; line-height: 1.8; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; }
+.cta-trust { display: flex; gap: 24px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
+.cta-trust-item { font-size: 12px; color: var(--warm-gray); display: flex; align-items: center; gap: 6px; }
+.cta-trust-check { color: var(--green-lt); }
+
+/* ── FOOTER ── */
+footer { background: var(--ink); padding: 52px; border-top: 1px solid var(--border); }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--border-lt); }
+.footer-brand-name { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: white; margin-bottom: 8px; }
+.footer-desc { font-size: 13px; color: var(--warm-gray); line-height: 1.7; max-width: 260px; margin-bottom: 14px; }
+.footer-powered { font-size: 12px; color: rgba(255,255,255,0.25); }
+.footer-powered a { color: rgba(255,255,255,0.4); text-decoration: none; }
+.footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 13px; color: var(--warm-gray); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--orange-lt); }
+.footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.2); flex-wrap: wrap; gap: 10px; }
+.footer-bottom a { color: rgba(255,255,255,0.2); text-decoration: none; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 20px 60px; }
+  .hero-inner, .how-grid, .demo-inner { grid-template-columns: 1fr; gap: 40px; }
+  .problem-grid, .features-grid, .upsell-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .hero-proof { flex-wrap: wrap; gap: 20px; }
+  .band { padding: 32px 20px; flex-direction: column; text-align: center; }
+  .band-items { justify-content: center; }
+  .section { padding: 60px 20px; }
+  .demo-section, .cta-section { padding: 60px 20px; }
+  footer { padding: 40px 20px 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; }
+  .cta-btns { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">B</div>
+    <div>
+      <div class="nav-logo-text">Biz Solutions Partner</div>
+      <div class="nav-logo-sub">Permit Readiness Tool</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#features">Features</a>
+    <a href="#demo">Live Demo</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <a href="#pricing" class="nav-cta">Get Started →</a>
+</nav>
+
+<!-- HERO -->
+<section style="padding-top:0">
+  <div class="hero">
+    <div class="hero-texture"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag">
+          <div class="hero-tag-line"></div>
+          White-label AI tool for renovation contractors
+        </div>
+        <h1 class="hero-h1">
+          <span class="line">Your website</span>
+          <span class="line">qualifies leads</span>
+          <span class="line"><span class="orange">before you</span></span>
+          <span class="line"><span class="orange">call them.</span></span>
+        </h1>
+        <p class="hero-sub">
+          A branded permit readiness questionnaire lives on your website. Homeowners answer 6 questions, get an instant permit breakdown, timeline, and incentive check. <strong>Their full project brief arrives in your inbox before they call you.</strong>
+        </p>
+        <div class="hero-actions">
+          <a href="#demo" class="btn-orange">See Live Demo →</a>
+          <a href="#pricing" class="btn-ghost">View Pricing</a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-item">
+            <div class="proof-val">6</div>
+            <div class="proof-lbl">Questions.<br>3 minutes.</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-val">48hr</div>
+            <div class="proof-lbl">Live on<br>your site</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-val">$10K</div>
+            <div class="proof-lbl">Incentive<br>auto-flagged</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WIDGET MOCKUP -->
+      <div class="hero-right">
+        <div class="permit-widget">
+          <div class="pw-header">
+            <div class="pw-header-left">
+              <div class="pw-title">Permit Readiness Check</div>
+              <div class="pw-subtitle">Your Renovation Company · Free Tool</div>
+            </div>
+            <div class="pw-badge">Free Tool</div>
+          </div>
+          <div class="pw-progress">
+            <div class="prog-step done"></div>
+            <div class="prog-step active"></div>
+            <div class="prog-step"></div>
+            <div class="prog-step"></div>
+            <div class="prog-step"></div>
+            <div class="prog-step"></div>
+            <span class="prog-label">Question 2 of 6</span>
+          </div>
+          <div class="pw-body">
+            <div class="pw-question-num">Question 2 of 6 — Plumbing</div>
+            <div class="pw-question-text">Will your basement include a bathroom or kitchen?</div>
+            <div class="pw-options">
+              <div class="pw-option selected">
+                <div class="pw-option-dot"></div>
+                Yes — full bathroom (toilet, sink, shower)
+              </div>
+              <div class="pw-option">
+                <div class="pw-option-dot"></div>
+                Yes — bathroom only (no kitchen)
+              </div>
+              <div class="pw-option">
+                <div class="pw-option-dot"></div>
+                Wet bar only
+              </div>
+              <div class="pw-option">
+                <div class="pw-option-dot"></div>
+                No plumbing at all
+              </div>
+            </div>
+            <div class="pw-counter">
+              <div>
+                <div class="pw-counter-num">5</div>
+                <div class="pw-counter-lbl">Permits required so far</div>
+              </div>
+              <div class="pw-counter-right">
+                <div style="font-size:11px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">Updating live</div>
+                <div style="font-size:11px;color:var(--warm-gray);margin-top:4px;">HIGH complexity</div>
+              </div>
+            </div>
+          </div>
+          <div class="pw-footer">
+            <span class="pw-back">← Back</span>
+            <button class="pw-next">Next Question →</button>
+          </div>
+        </div>
+        <div class="widget-badge">
+          <div class="wb-dot"></div>
+          Branded to your company · Embedded on your website · Leads to your inbox
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="band">
+  <div class="band-items">
+    <div class="band-item">
+      <div class="band-val">3–7</div>
+      <div class="band-lbl">Permits for most Calgary basement projects</div>
+    </div>
+    <div class="band-item">
+      <div class="band-val">$40B+</div>
+      <div class="band-lbl">Annual Canadian renovation spend</div>
+    </div>
+    <div class="band-item">
+      <div class="band-val">$10K</div>
+      <div class="band-lbl">Secondary Suite Incentive — auto-flagged</div>
+    </div>
+    <div class="band-item">
+      <div class="band-val">48hr</div>
+      <div class="band-lbl">From signed agreement to live on your site</div>
+    </div>
+  </div>
+  <a href="https://contractor.bizsolutionspartner.com" target="_blank" class="band-cta">Try the Live Demo →</a>
+</div>
+
+<!-- PROBLEM -->
+<section class="section problem">
+  <div class="section-inner">
+    <div class="section-tag">The problem you're solving</div>
+    <h2 class="section-h2">Every site assessment<br>starts the <span class="orange">same way.</span></h2>
+    <p class="section-sub">The first 20 minutes of every homeowner conversation is the same — permits, timelines, costs, complexity. You answer these questions manually, on every call, before you've seen the space. That's your expertise being given away for free.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="prob-num">01</div>
+        <div class="prob-title">Homeowners don't understand permits</div>
+        <div class="prob-desc">They land on your website not knowing if they need 2 permits or 7, how long it takes, or whether their legal suite qualifies for the $10K incentive. That uncertainty stops them from calling. Or they call unprepared and waste both your time.</div>
+      </div>
+      <div class="problem-card">
+        <div class="prob-num">02</div>
+        <div class="prob-title">Your website is a brochure, not a tool</div>
+        <div class="prob-desc">It shows your work. It lists your services. But it doesn't do anything for a visitor who's on the fence. A homeowner who leaves your site without calling is a lost lead — and you never knew they were there.</div>
+      </div>
+      <div class="problem-card">
+        <div class="prob-num">03</div>
+        <div class="prob-title">Cold site assessments waste everyone's time</div>
+        <div class="prob-desc">You drive to a property not knowing if it's a $30K family basement or a $150K legal suite with a full permit package. The first 20 minutes of the visit are qualification work you could have done automatically before you left.</div>
+      </div>
+      <div class="problem-card">
+        <div class="prob-num">04</div>
+        <div class="prob-title">Your competitors have the same contact form</div>
+        <div class="prob-desc">In 2026 every contractor has a website with a contact form. None of them have an interactive tool that educates homeowners, pre-qualifies their project, and delivers a complete brief to your inbox automatically. Until now.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how" id="how">
+  <div class="section-inner">
+    <div class="section-tag">How it works</div>
+    <h2 class="section-h2">From website visitor<br>to <span class="orange">briefed lead.</span></h2>
+    <p class="section-sub">The tool runs automatically. You get the lead brief. You make the call knowing exactly what you're walking into.</p>
+    <div class="how-grid">
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="step-num-box">01</div>
+          <div class="step-content">
+            <div class="step-title">Homeowner finds your website</div>
+            <div class="step-desc">They see a free tool — "Check Your Permit Requirements." No email required to start. They're curious. They click.</div>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num-box">02</div>
+          <div class="step-content">
+            <div class="step-title">They answer 6 questions</div>
+            <div class="step-desc">Project purpose, plumbing scope, entrance requirements, budget range, whether they have drawings, and their timeline. Takes 3 minutes. No technical knowledge required.</div>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num-box">03</div>
+          <div class="step-content">
+            <div class="step-title">They get instant results</div>
+            <div class="step-desc">Permit complexity score (Low/Moderate/High), exact number of permits required, realistic City of Calgary processing timeline, and whether they qualify for the $10K Secondary Suite Incentive.</div>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num-box">04</div>
+          <div class="step-content">
+            <div class="step-title">You get their full brief instantly</div>
+            <div class="step-desc">The moment they submit — their name, email, phone, and complete project scope arrives in your inbox. You call them knowing their project type, complexity, budget range, and timeline expectations. The first conversation starts differently.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-result">
+        <div class="hr-label">Sample lead notification — arrives in your inbox</div>
+        <div class="hr-title">New Lead — Legal Secondary Suite</div>
+        <div class="hr-sub">Varsity Estates · Submitted 2 minutes ago</div>
+        <div class="result-row">
+          <div class="rr-label">Project type</div>
+          <div class="rr-value">Legal rental suite with separate entrance</div>
+        </div>
+        <div class="result-row">
+          <div class="rr-label">Plumbing scope</div>
+          <div class="rr-value">Full bathroom — toilet, sink, shower</div>
+        </div>
+        <div class="result-row">
+          <div class="rr-label">Permit complexity</div>
+          <div class="rr-value" style="color:var(--orange);font-weight:700;">HIGH — 7 permits required</div>
+        </div>
+        <div class="result-row">
+          <div class="rr-label">Estimated timeline</div>
+          <div class="rr-value">14–18 weeks from permit submission</div>
+        </div>
+        <div class="result-row">
+          <div class="rr-label">Budget range</div>
+          <div class="rr-value">$60,000 – $100,000</div>
+        </div>
+        <div class="result-row">
+          <div class="rr-label">$10K incentive eligible</div>
+          <div class="rr-value" style="color:var(--green-lt);font-weight:600;">✓ Yes — legal suite qualifies</div>
+        </div>
+        <div class="result-row">
+          <div class="rr-label">Has drawings</div>
+          <div class="rr-value">No — needs referral to designer</div>
+        </div>
+        <div class="result-row">
+          <div class="rr-label">Target start</div>
+          <div class="rr-value">1–3 months</div>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-brief">
+          <div class="rb-label">Suggested opening — use this when you call</div>
+          <div class="rb-text">"Hi Sarah, I saw you checked your permit requirements for a legal suite in Varsity Estates — looks like a 7-permit package. I'd love to do a free site assessment and show you exactly what the timeline and cost looks like. When works for you this week?"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features" id="features">
+  <div class="section-inner">
+    <div class="section-tag">What you get</div>
+    <h2 class="section-h2">Everything built.<br><span class="orange">You just use it.</span></h2>
+    <p class="section-sub">We build, deploy, and maintain everything. You get a client acquisition tool that works 24 hours a day without any staff involvement.</p>
+    <div class="features-grid">
+      <div class="feat-card">
+        <span class="feat-num">01</span>
+        <span class="feat-icon">🏷️</span>
+        <div class="feat-title">Branded to your company</div>
+        <div class="feat-desc">Your logo, your colours, your company name throughout. Homeowners never see BSP — they see your brand. The tool looks and feels like it was built in-house.</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">02</span>
+        <span class="feat-icon">📊</span>
+        <div class="feat-title">Live permit count</div>
+        <div class="feat-desc">As homeowners answer each question, the permit count updates in real time. They watch the number change as they reveal more about their project. It's engaging and educational.</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">03</span>
+        <span class="feat-icon">⏱️</span>
+        <div class="feat-title">Realistic timeline estimates</div>
+        <div class="feat-desc">City permit timelines vary by complexity and season. The tool gives a calibrated range based on current Calgary processing speeds — not wishful thinking. Sets proper expectations before the first call.</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">04</span>
+        <span class="feat-icon">💰</span>
+        <div class="feat-title">$10K incentive auto-check</div>
+        <div class="feat-desc">Legal suites meeting City requirements qualify for Calgary's Secondary Suite Incentive. The tool flags this automatically if the project qualifies — a significant conversion driver for homeowners on the fence.</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">05</span>
+        <span class="feat-icon">📧</span>
+        <div class="feat-title">Instant lead notification</div>
+        <div class="feat-desc">The moment a homeowner completes the questionnaire, their full project scope arrives in your inbox. Name, email, phone, and everything they told the tool — before you've spoken to them.</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-num">06</span>
+        <span class="feat-icon">🔧</span>
+        <div class="feat-title">Always current — we maintain it</div>
+        <div class="feat-desc">Calgary permit requirements change. The City updates fees, timelines, and incentive programs regularly. Your monthly retainer covers ongoing updates so your tool is always accurate.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPSELL STACK -->
+<section class="section upsell">
+  <div class="section-inner">
+    <div class="section-tag">Add-on products</div>
+    <h2 class="section-h2">Stack more tools.<br><span class="orange">Recover more jobs.</span></h2>
+    <p class="section-sub">The Permit Readiness Tool generates leads. These two add-ons make sure you never lose one.</p>
+    <div class="upsell-grid">
+      <div class="upsell-card">
+        <div class="upsell-tag tag-add">Add-on 1</div>
+        <div class="upsell-name">Lead Response Automation</div>
+        <div class="upsell-desc">Every time someone fills out your contact form while you're on a job site, an AI response goes out in under 60 seconds. You get an instant notification with full lead details. The prospect gets a professional reply before they call your competitor.</div>
+        <div class="upsell-price"><strong>$597 setup</strong> · $197/month</div>
+      </div>
+      <div class="upsell-card">
+        <div class="upsell-tag tag-add">Add-on 2</div>
+        <div class="upsell-name">HelloLobby AI Receptionist</div>
+        <div class="upsell-desc">An AI chat and voice widget that answers every website visitor question and books appointments 24/7 — based on your actual website content. After-hours inquiries handled automatically. Works in English and Spanish.</div>
+        <div class="upsell-price"><strong>No setup fee</strong> · $79/month</div>
+      </div>
+    </div>
+    <div class="upsell-total">
+      <div class="ut-label">Full stack — Permit Tool + Lead Response + HelloLobby</div>
+      <div class="ut-row">
+        <div class="ut-title">Your website works<br>24 hours a day.</div>
+        <div class="ut-val">$473<span style="font-size:20px;font-weight:400;">/mo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<div class="demo-section" id="demo">
+  <div class="demo-inner">
+    <div class="demo-left">
+      <div class="demo-tag">Live demo</div>
+      <h2 class="demo-h2">See it running on a <span class="orange">Calgary contractor site.</span></h2>
+      <p class="demo-sub">Ridgeline Residential is a fully functional demo contractor website built by BSP. Every feature you're buying is live and working on this site right now. Run the questionnaire as a homeowner — see the permit count update in real time, see the complexity score, see the $10K incentive flag.</p>
+      <div class="demo-url">
+        <span class="demo-url-text">contractor.bizsolutionspartner.com</span>
+        <span class="demo-url-copy" onclick="navigator.clipboard.writeText('https://contractor.bizsolutionspartner.com')">Copy link</span>
+      </div>
+      <div class="demo-cta-btns">
+        <a href="https://contractor.bizsolutionspartner.com" target="_blank" class="btn-orange">Open Live Demo →</a>
+        <a href="mailto:pablo@bizsolutionspartner.com?subject=Permit Tool Demo Request" class="btn-ghost">Book a Walk-Through</a>
+      </div>
+    </div>
+    <div class="demo-right">
+      <div class="demo-site-preview">
+        <div class="dsb">
+          <div class="ds-dot ds-r"></div>
+          <div class="ds-dot ds-y"></div>
+          <div class="ds-dot ds-g"></div>
+          <div class="ds-url">contractor.bizsolutionspartner.com</div>
+        </div>
+        <div class="demo-site-body">
+          <div class="ds-nav">
+            <div class="ds-logo">Ridgeline Residential</div>
+            <div class="ds-nav-items">
+              <div class="ds-nav-item"></div>
+              <div class="ds-nav-item"></div>
+              <div class="ds-nav-btn"></div>
+            </div>
+          </div>
+          <div class="ds-hero">
+            <div class="ds-h1">We Build</div>
+            <div class="ds-h2">Below Grade.</div>
+            <div class="ds-p"></div>
+            <div class="ds-p sm"></div>
+            <div class="ds-cta"></div>
+          </div>
+          <div class="ds-widget">
+            <div class="ds-widget-h">
+              Permit Readiness Check
+              <span>Free Tool</span>
+            </div>
+            <div class="ds-q">What is the primary purpose of your basement project?</div>
+            <div class="ds-opts">
+              <div class="ds-opt sel">
+                <div class="ds-opt-dot"></div>
+                <div class="ds-opt-text">Legal rental suite with separate entrance</div>
+              </div>
+              <div class="ds-opt">
+                <div class="ds-opt-dot"></div>
+                <div class="ds-opt-text">Family living space</div>
+              </div>
+              <div class="ds-opt">
+                <div class="ds-opt-dot"></div>
+                <div class="ds-opt-text">Home office or studio</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="section-inner">
+    <div class="section-tag" style="justify-content:center;display:flex;">Investment</div>
+    <h2 class="section-h2" style="text-align:center;">One job covers<br><span class="orange">years of service.</span></h2>
+    <p class="section-sub" style="text-align:center;margin:0 auto 48px;">A $60,000 legal suite pays for this tool for 25 years. That's the math.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="pc-tag">Standard Build</div>
+        <div class="pc-name">Permit Readiness Tool</div>
+        <div class="pc-sub">Branded, embedded, and maintained</div>
+        <div class="pc-price">$1,500<span class="pc-period"> setup</span></div>
+        <div class="pc-note">Then $197/month · Cancel anytime</div>
+        <div class="pc-divider"></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>6-question permit questionnaire</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Branded to your company</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Live permit count + complexity score</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>$10K incentive auto-check</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Instant lead notification to your inbox</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Embedded on your existing website</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Ongoing permit rule updates included</span></div>
+        <a href="mailto:pablo@bizsolutionspartner.com?subject=Permit Readiness Tool — Standard" class="pc-cta cta-border">Get Started →</a>
+      </div>
+      <div class="price-card featured">
+        <div class="pc-tag">Full Stack — Most Popular</div>
+        <div class="pc-name">Tool + Lead Response</div>
+        <div class="pc-sub">Permit tool plus instant web lead follow-up</div>
+        <div class="pc-price">$2,500<span class="pc-period"> setup</span></div>
+        <div class="pc-note">Then $394/month · Best value</div>
+        <div class="pc-divider"></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Everything in Standard</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Lead Response Automation included</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>AI responds to web forms in &lt;60 sec</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Instant owner notification for every lead</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Never lose a lead to slow follow-up</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Both tools maintained monthly</span></div>
+        <div class="pc-feat"><span class="pf-check">✓</span><span>Priority support</span></div>
+        <a href="mailto:pablo@bizsolutionspartner.com?subject=Permit Readiness Tool — Full Stack" class="pc-cta cta-white">Get Started →</a>
+      </div>
+    </div>
+    <div class="pricing-note">
+      Want to see it on your own site first? <a href="https://contractor.bizsolutionspartner.com" target="_blank">Try the live demo</a> or <a href="mailto:pablo@bizsolutionspartner.com">book a 15-minute walk-through</a>.
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-h2">
+      A homeowner just visited<br>
+      your website and <span class="orange">left.</span>
+    </h2>
+    <p class="cta-sub">They had questions. There was nobody to answer them. They'll call the next contractor on Google. Give your website a tool that answers those questions automatically — and sends you the lead brief before they call anyone.</p>
+    <div class="cta-btns">
+      <a href="https://contractor.bizsolutionspartner.com" target="_blank" class="btn-orange">See the Live Demo →</a>
+      <a href="mailto:pablo@bizsolutionspartner.com?subject=Permit Tool - Book a Walk-Through" class="btn-ghost">Book a Walk-Through</a>
+    </div>
+    <div class="cta-trust">
+      <div class="cta-trust-item"><span class="cta-trust-check">✓</span> Live on your site in 48 hours</div>
+      <div class="cta-trust-item"><span class="cta-trust-check">✓</span> Branded to your company</div>
+      <div class="cta-trust-item"><span class="cta-trust-check">✓</span> 30-day money-back guarantee</div>
+      <div class="cta-trust-item"><span class="cta-trust-check">✓</span> Calgary-based support</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Biz Solutions Partner</div>
+      <div class="footer-desc">AI-powered tools for growing Calgary businesses. Done-for-you setup, maintained monthly, built for the trades.</div>
+      <div class="footer-powered">A product by <a href="index.html">Biz Solutions Partner</a></div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">This Tool</div>
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#demo">Live Demo</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Other Products</div>
+      <a href="bsp_lead_response_landing.html">Lead Response Automation</a>
+      <a href="ifa_lead_intelligence_landing.html">IFA Lead Intelligence</a>
+      <a href="https://hellolobby.ca">HelloLobby</a>
+      <a href="mailto:pablo@bizsolutionspartner.com">Contact Pablo</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Biz Solutions Partner. All rights reserved. Calgary, Alberta, Canada.</span>
+    <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
