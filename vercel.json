@@ -1,34 +1,34 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/dental/$1",
-      "has": [
-        {
-          "type": "host",
-          "value": "dental.bizsolutionspartner.com"
-        }
-      ]
+      "source": "/",
+      "has": [{ "type": "host", "value": "dental.bizsolutionspartner.com" }],
+      "destination": "/dental/index.html"
     },
     {
-      "source": "/(.*)",
-      "destination": "/chiro/$1",
-      "has": [
-        {
-          "type": "host",
-          "value": "chiro.bizsolutionspartner.com"
-        }
-      ]
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "dental.bizsolutionspartner.com" }],
+      "destination": "/dental/:path*"
     },
     {
-      "source": "/(.*)",
-      "destination": "/medspa/$1",
-      "has": [
-        {
-          "type": "host",
-          "value": "medspa.bizsolutionspartner.com"
-        }
-      ]
+      "source": "/",
+      "has": [{ "type": "host", "value": "chiro.bizsolutionspartner.com" }],
+      "destination": "/chiro/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "chiro.bizsolutionspartner.com" }],
+      "destination": "/chiro/:path*"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "medspa.bizsolutionspartner.com" }],
+      "destination": "/medspa/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "medspa.bizsolutionspartner.com" }],
+      "destination": "/medspa/:path*"
     }
   ]
 }
