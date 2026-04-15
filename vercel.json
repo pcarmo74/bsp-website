@@ -1,0 +1,34 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/dental/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "dental.bizsolutionspartner.com"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/chiro/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "chiro.bizsolutionspartner.com"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/medspa/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "medspa.bizsolutionspartner.com"
+        }
+      ]
+    }
+  ]
+}
