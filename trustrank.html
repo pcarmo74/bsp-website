@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrustRank — BSP | Turn Your Reviews Into AI-Ranked Content</title>
+<meta name="description" content="TrustRank by BSP turns your existing patient reviews into structured, AI-quotable content that ranks when people search for your reputation. A monthly retainer service for local service businesses in Calgary.">
+<meta name="keywords" content="reputation management Calgary, review aggregation service, AI search reputation, local business reviews structured content, BSP TrustRank">
+
+<meta property="og:title" content="TrustRank by BSP — Your Reviews, Working Harder">
+<meta property="og:description" content="229 five-star reviews sitting on Google, doing nothing for your own website. TrustRank changes that.">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "TrustRank",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "BSP — Biz Solutions Partner",
+    "url": "https://bizsolutionspartner.com"
+  },
+  "description": "A monthly retainer service that turns existing patient and client reviews into structured, AI-quotable reputation content on your own website. Organized by specialty, condition, practitioner, and location.",
+  "areaServed": "Canada",
+  "serviceType": "Reputation Content Management"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0A0F0D;
+  --deep-green: #1A2E25;
+  --mint: #2ECC8A;
+  --mint-dim: #1a7a52;
+  --off-white: #F5F2ED;
+  --muted: #6B7C74;
+  --border: rgba(245,242,237,0.1);
+  --card-bg: rgba(255,255,255,0.04);
+  --gold: #E8C170;
+  --gold-dim: rgba(232,193,112,0.1);
+  --gold-border: rgba(232,193,112,0.25);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(10,15,13,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-left { display: flex; align-items: center; gap: 20px; }
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--off-white);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-logo span { color: var(--mint); }
+
+.nav-divider { width: 1px; height: 16px; background: var(--border); }
+
+.nav-product {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--off-white); }
+
+.nav-cta {
+  background: var(--gold) !important;
+  color: var(--black) !important;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  transition: opacity 0.2s !important;
+}
+
+.nav-cta:hover { opacity: 0.85; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  padding: 14px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--off-white);
+  padding: 14px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--muted); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 40px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(232,193,112,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 100px;
+  padding: 8px 18px;
+  margin-bottom: 40px;
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 800px;
+  margin-bottom: 28px;
+}
+
+.hero h1 em { font-style: italic; color: var(--gold); }
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.hero-sub strong { color: var(--off-white); font-weight: 500; }
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 64px;
+}
+
+/* ── PROBLEM VISUAL ── */
+.compare-strip {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+  max-width: 760px;
+  width: 100%;
+  text-align: left;
+}
+
+.compare-card {
+  padding: 24px 28px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.compare-card.before {
+  background: rgba(255,255,255,0.03);
+  opacity: 0.7;
+}
+
+.compare-card.after {
+  background: var(--gold-dim);
+  border-color: var(--gold-border);
+}
+
+.compare-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.compare-card.before .compare-label { color: var(--muted); }
+.compare-card.after .compare-label { color: var(--gold); }
+
+.compare-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.compare-card p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.compare-arrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+/* ── STRIP ── */
+.strip {
+  background: var(--gold);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.strip-inner {
+  display: inline-flex;
+  gap: 56px;
+  animation: marquee 28s linear infinite;
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--black);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.strip-inner span { opacity: 0.4; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTIONS ── */
+section { padding: 96px 40px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.section-title em { font-style: italic; color: var(--gold); }
+
+.section-lead {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 540px;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* ── HOW IT WORKS ── */
+.how { background: var(--deep-green); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.step {
+  padding: 40px 28px;
+  background: rgba(10,15,13,0.3);
+  border-right: 1px solid var(--border);
+}
+
+.step:last-child { border-right: none; }
+
+.step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.step h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.step p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── WHAT'S INCLUDED ── */
+.included { background: var(--black); }
+
+.included-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.included-card {
+  padding: 36px 32px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  transition: border-color 0.2s;
+}
+
+.included-card:hover { border-color: var(--gold-border); }
+
+.included-card.featured {
+  grid-column: span 2;
+  background: var(--gold-dim);
+  border-color: var(--gold-border);
+}
+
+.included-icon { font-size: 1.6rem; margin-bottom: 16px; }
+
+.included-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.included-card p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.included-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+}
+
+/* ── LIVE DEMO PANEL ── */
+.demo-section { background: var(--deep-green); }
+
+.demo-panel {
+  margin-top: 64px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.demo-panel-nav {
+  background: rgba(10,15,13,0.5);
+  padding: 16px 28px;
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.demo-tab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  border: none;
+  background: none;
+  color: var(--muted);
+}
+
+.demo-tab.active {
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+}
+
+.demo-content { display: none; padding: 40px; }
+.demo-content.active { display: block; }
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.testimonial-card {
+  background: rgba(10,15,13,0.4);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.testimonial-card .stars {
+  color: var(--gold);
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+
+.testimonial-card .text {
+  font-family: 'Fraunces', serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--off-white);
+  margin-bottom: 14px;
+}
+
+.testimonial-card .meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.testimonial-card .meta strong { color: var(--off-white); }
+
+.bucket-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+  margin-top: 10px;
+}
+
+/* ── PRICING ── */
+.pricing { background: var(--black); }
+
+.pricing-card {
+  margin-top: 64px;
+  border: 1px solid var(--gold-border);
+  border-radius: 16px;
+  padding: 64px;
+  background: var(--gold-dim);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.pricing-left h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.pricing-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.deliverables {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deliverable {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: var(--off-white);
+}
+
+.deliverable::before {
+  content: '→';
+  color: var(--gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricing-right h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.pricing-right p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+.add-on-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+
+.add-on-row:last-child { border-bottom: none; }
+.add-on-label { color: var(--off-white); }
+.add-on-price { font-family: 'JetBrains Mono', monospace; color: var(--gold); font-size: 0.82rem; }
+
+/* ── FAQ ── */
+.faq-section { background: var(--deep-green); }
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 64px;
+}
+
+.faq-item {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(10,15,13,0.3);
+}
+
+.faq-item h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.faq-item p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── CONTACT ── */
+.contact { background: var(--black); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 64px;
+  align-items: start;
+}
+
+.contact-left h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.contact-left h2 em { font-style: italic; color: var(--gold); }
+
+.contact-left p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.contact-info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.contact-info-row a { color: var(--gold); text-decoration: none; }
+.contact-info-row a:hover { text-decoration: underline; }
+
+.contact-info-icon {
+  width: 32px; height: 32px;
+  border-radius: 6px;
+  background: var(--gold-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+
+.form-group label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: var(--off-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  outline: none;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: rgba(232,193,112,0.5); }
+
+.form-group select option { background: var(--black); }
+.form-group textarea { min-height: 100px; }
+
+.form-submit {
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-submit:hover { opacity: 0.88; }
+.form-note { font-size: 0.78rem; color: var(--muted); text-align: center; }
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 48px 32px;
+  border: 1px solid var(--gold-border);
+  border-radius: 10px;
+  background: var(--gold-dim);
+}
+
+.form-success h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--gold);
+}
+
+.form-success p { color: var(--muted); font-size: 0.9rem; }
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: var(--gold);
+  padding: 96px 40px;
+  text-align: center;
+}
+
+.cta-band h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--black);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.cta-band p { font-size: 1rem; color: rgba(0,0,0,0.6); margin-bottom: 36px; }
+
+.cta-band-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+.btn-dark {
+  background: var(--black);
+  color: var(--gold);
+  padding: 14px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.btn-dark:hover { opacity: 0.88; }
+
+.btn-dark-ghost {
+  border: 2px solid rgba(0,0,0,0.3);
+  color: var(--black);
+  padding: 13px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black);
+  border-top: 1px solid var(--border);
+  padding: 40px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--off-white);
+  text-decoration: none;
+}
+
+.footer-logo span { color: var(--mint); }
+
+.footer-links { display: flex; gap: 24px; list-style: none; }
+
+.footer-links a {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover { color: var(--off-white); }
+.footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  section { padding: 64px 24px; }
+  .compare-strip { grid-template-columns: 1fr; }
+  .compare-arrow { transform: rotate(90deg); }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .step:nth-child(2) { border-right: none; }
+  .step { border-bottom: 1px solid var(--border); }
+  .step:nth-child(3), .step:last-child { border-bottom: none; }
+  .included-grid { grid-template-columns: 1fr; }
+  .included-card.featured { grid-column: span 1; }
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .pricing-card { grid-template-columns: 1fr; gap: 40px; padding: 36px; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero { padding: 100px 24px 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo">BSP<span>.</span></a>
+    <div class="nav-divider"></div>
+    <div class="nav-product">TrustRank</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#included">What's Included</a></li>
+    <li><a href="#demo">Live Demo</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">★ New from BSP · Reputation Content Management</div>
+
+  <h1>229 reviews.<br>None of them<br><em>working for you.</em></h1>
+
+  <p class="hero-sub">
+    Your best patients already said everything a new client needs to hear. It's sitting on Google, doing nothing for your own website.
+    <strong>TrustRank turns your reviews into structured, AI-quotable reputation content — updated every month.</strong>
+  </p>
+
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Start TrustRank →</a>
+    <a href="#demo" class="btn-ghost">See a live example</a>
+  </div>
+
+  <div class="compare-strip">
+    <div class="compare-card before">
+      <div class="compare-label">× Without TrustRank</div>
+      <h3>Reviews buried on Google</h3>
+      <p>When someone searches "Auburn Bay Physio reviews," they land on Google Maps — your competitor's ad, your neighbor's listing, and a 2-star outlier from 4 years ago.</p>
+    </div>
+    <div class="compare-arrow">→</div>
+    <div class="compare-card after">
+      <div class="compare-label">✓ With TrustRank</div>
+      <h3>A dedicated page you own</h3>
+      <p>Structured, AI-quotable content on your own domain — organized by specialty, condition, and practitioner. When AI search looks for evidence, it finds yours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-inner">
+    Own your reputation <span>·</span> AI-quotable content <span>·</span> Updated monthly <span>·</span> Organized by specialty <span>·</span> On your own domain <span>·</span> No scraping <span>·</span> 100% legitimate <span>·</span> Retainer service <span>·</span>
+    Own your reputation <span>·</span> AI-quotable content <span>·</span> Updated monthly <span>·</span> Organized by specialty <span>·</span> On your own domain <span>·</span> No scraping <span>·</span> 100% legitimate <span>·</span> Retainer service <span>·</span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-inner">
+    <div class="eyebrow">How It Works</div>
+    <h2 class="section-title">Simple system.<br><em>Compounding results.</em></h2>
+    <p class="section-lead">Every month, your reputation page gets richer, more specific, and harder for AI search to ignore.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">STEP 01</div>
+        <h3>We set up your submission page</h3>
+        <p>A simple, branded testimonial form lives on your own website. Patients submit directly — their words, your content, your domain. No third-party platforms.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 02</div>
+        <h3>We organize by bucket</h3>
+        <p>Every submission is tagged — by condition treated, practitioner, service type, and patient type. Your reputation becomes navigable, not just a pile of stars.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 03</div>
+        <h3>We write the AI-quotable content</h3>
+        <p>Review themes become structured summary content: "What patients say about our pelvic floor physiotherapy." Original writing, not copied reviews — AI search can quote it directly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 04</div>
+        <h3>Monthly update, every month</h3>
+        <p>New submissions get bucketed, content gets refreshed, and your page grows. The longer you're on TrustRank, the stronger your reputation presence becomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included" id="included">
+  <div class="section-inner">
+    <div class="eyebrow">What's Included</div>
+    <h2 class="section-title">Everything.<br><em>Done for you.</em></h2>
+    <p class="section-lead">TrustRank is a fully managed monthly service. You don't touch it — we handle collection, organization, writing, and updates.</p>
+
+    <div class="included-grid">
+      <div class="included-card featured">
+        <div class="included-icon">⭐</div>
+        <h3>Your Own Reputation Page</h3>
+        <p>A structured, branded page on your own domain — not a third-party review site — that organizes patient testimonials by condition, service, practitioner, and patient type. When someone searches for your reputation, they find a page you own, with content you control, that AI tools can quote directly.</p>
+        <div class="included-tag">Core deliverable</div>
+      </div>
+
+      <div class="included-card">
+        <div class="included-icon">📋</div>
+        <h3>Testimonial Submission System</h3>
+        <p>A simple, branded form embedded on your site. Patients submit testimonials directly — their own words, voluntarily shared, on your domain. Every submission is tagged with the relevant specialty, condition, and practitioner before it goes live.</p>
+        <div class="included-tag">Setup included</div>
+      </div>
+
+      <div class="included-card">
+        <div class="included-icon">✍️</div>
+        <h3>Monthly AI-Quotable Content</h3>
+        <p>Each month, BSP writes structured summary content derived from your review themes — never copying verbatim text. "What patients say about massage therapy at ABPCM" is a paragraph an AI can cite. "★★★★★ Great clinic" is not.</p>
+        <div class="included-tag">Monthly</div>
+      </div>
+
+      <div class="included-card">
+        <div class="included-icon">🏷️</div>
+        <h3>Organized by Specialty & Condition</h3>
+        <p>Testimonials bucketed by: condition treated (back pain, prenatal, sports injury), service (physio, chiro, massage), practitioner, and patient type (adult, pediatric, senior, athlete). Makes the page useful to visitors and machine-readable to AI search.</p>
+        <div class="included-tag">Ongoing</div>
+      </div>
+
+      <div class="included-card">
+        <div class="included-icon">📊</div>
+        <h3>Monthly Reputation Report</h3>
+        <p>A simple one-page summary each month: new submissions received, themes emerging, content added, and what your reputation page now ranks for. You know exactly what's working.</p>
+        <div class="included-tag">Monthly</div>
+      </div>
+
+      <div class="included-card">
+        <div class="included-icon">🔍</div>
+        <h3>Schema Markup Maintained</h3>
+        <p>Your reputation page stays properly tagged with Review and LocalBusiness schema so search engines and AI tools can read and cite it accurately. Updated each month as new content is added.</p>
+        <div class="included-tag">Ongoing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo-section" id="demo">
+  <div class="section-inner">
+    <div class="eyebrow">Live Example</div>
+    <h2 class="section-title">What your reputation<br><em>page looks like.</em></h2>
+    <p class="section-lead">Organized by specialty. AI-quotable. On your own domain. This is what TrustRank builds — click each bucket to see how content is organized.</p>
+
+    <div class="demo-panel">
+      <div class="demo-panel-nav">
+        <button class="demo-tab active" onclick="switchTab('physio')">Physiotherapy</button>
+        <button class="demo-tab" onclick="switchTab('massage')">Massage Therapy</button>
+        <button class="demo-tab" onclick="switchTab('chiro')">Chiropractic</button>
+        <button class="demo-tab" onclick="switchTab('pelvic')">Pelvic Floor</button>
+        <button class="demo-tab" onclick="switchTab('sports')">Sports Rehab</button>
+      </div>
+
+      <div class="demo-content active" id="tab-physio">
+        <p style="font-size:0.82rem; color:var(--muted); margin-bottom:24px; font-family:'JetBrains Mono',monospace; letter-spacing:0.04em;">WHAT PATIENTS SAY ABOUT PHYSIOTHERAPY AT ABPCM</p>
+        <p style="font-size:0.95rem; color:var(--muted); line-height:1.75; margin-bottom:28px; font-style:italic;">Patients consistently describe the physiotherapy team at Auburn Bay Physio Chiro Massage as thorough, unhurried, and effective for both acute and chronic conditions. The most common themes: genuine listening, personalized treatment plans, and results that outlast the appointment.</p>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"After two years of chronic lower back pain and three different clinics, I finally have a plan that's actually working. The assessment here was the most thorough I've ever had."</div>
+            <div class="meta"><strong>Chronic Back Pain</strong> · Auburn Bay patient</div>
+            <div class="bucket-tag">Condition: Chronic Pain</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"Returned to running 8 weeks after my knee injury. My physio set realistic expectations from day one and delivered on every single one of them."</div>
+            <div class="meta"><strong>Knee Rehabilitation</strong> · Sports patient</div>
+            <div class="bucket-tag">Condition: Sports Injury</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-content" id="tab-massage">
+        <p style="font-size:0.82rem; color:var(--muted); margin-bottom:24px; font-family:'JetBrains Mono',monospace; letter-spacing:0.04em;">WHAT PATIENTS SAY ABOUT MASSAGE THERAPY AT ABPCM</p>
+        <p style="font-size:0.95rem; color:var(--muted); line-height:1.75; margin-bottom:28px; font-style:italic;">The massage team at ABPCM is frequently described as skilled at reading tension and adapting pressure intuitively. Reviews specifically mention the RMT team's ability to target problem areas without being told directly — a sign of genuine clinical expertise rather than routine treatment.</p>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"Best massage I've had in Calgary. She found tension I didn't even know I was carrying and worked through it without me having to explain a thing."</div>
+            <div class="meta"><strong>Deep Tissue</strong> · Mahogany patient</div>
+            <div class="bucket-tag">Service: Deep Tissue</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"I've been coming every 3 weeks for a year. The consistency and quality have never dipped. Worth every penny for what it does for my stress levels."</div>
+            <div class="meta"><strong>Ongoing Maintenance</strong> · Regular patient</div>
+            <div class="bucket-tag">Patient Type: Regular</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-content" id="tab-chiro">
+        <p style="font-size:0.82rem; color:var(--muted); margin-bottom:24px; font-family:'JetBrains Mono',monospace; letter-spacing:0.04em;">WHAT PATIENTS SAY ABOUT CHIROPRACTIC CARE AT ABPCM</p>
+        <p style="font-size:0.95rem; color:var(--muted); line-height:1.75; margin-bottom:28px; font-style:italic;">Patients describe the chiropractor at ABPCM as thorough with explanations and effective with adjustments. Multiple reviews specifically mention relief from headaches and neck tension that hadn't responded to other treatments.</p>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"My chronic tension headaches are gone after 6 weeks of adjustments. I was skeptical but the results speak for themselves."</div>
+            <div class="meta"><strong>Headache Relief</strong> · Seton patient</div>
+            <div class="bucket-tag">Condition: Headaches</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"He explains everything he's doing and why. I've never felt more confident in a treatment plan — I actually understand what's happening in my body now."</div>
+            <div class="meta"><strong>Neck & Spine</strong> · Cranston patient</div>
+            <div class="bucket-tag">Condition: Neck Pain</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-content" id="tab-pelvic">
+        <p style="font-size:0.82rem; color:var(--muted); margin-bottom:24px; font-family:'JetBrains Mono',monospace; letter-spacing:0.04em;">WHAT PATIENTS SAY ABOUT PELVIC FLOOR PHYSIO AT ABPCM</p>
+        <p style="font-size:0.95rem; color:var(--muted); line-height:1.75; margin-bottom:28px; font-style:italic;">Pelvic floor physiotherapy patients consistently describe feeling respected, heard, and comfortable — unusually important in a specialty that requires trust. Several reviews mention that ABPCM was the first place they felt genuinely understood.</p>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"I was nervous about this type of treatment. The level of care and professionalism put me completely at ease from the first appointment. The results after 8 weeks were beyond what I expected."</div>
+            <div class="meta"><strong>Postpartum Recovery</strong> · New mom patient</div>
+            <div class="bucket-tag">Patient Type: Postpartum</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"I'd been dealing with this for three years without ever being told pelvic floor physio was an option. I wish I'd found this clinic sooner."</div>
+            <div class="meta"><strong>Chronic Pelvic Pain</strong> · Auburn Bay patient</div>
+            <div class="bucket-tag">Condition: Chronic Pain</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-content" id="tab-sports">
+        <p style="font-size:0.82rem; color:var(--muted); margin-bottom:24px; font-family:'JetBrains Mono',monospace; letter-spacing:0.04em;">WHAT ATHLETES SAY ABOUT ABPCM</p>
+        <p style="font-size:0.95rem; color:var(--muted); line-height:1.75; margin-bottom:28px; font-style:italic;">Athletes describe ABPCM as understanding the difference between getting someone pain-free and getting them back to performance. Multiple reviews mention return-to-sport timelines that matched or beat initial estimates.</p>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"I play competitive hockey. After my shoulder injury I was told 12 weeks. I was back on the ice in 9. The rehab program was specific, progressive, and worked."</div>
+            <div class="meta"><strong>Shoulder Rehabilitation</strong> · Hockey player</div>
+            <div class="bucket-tag">Sport: Hockey</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="text">"They understood I needed to get back to running, not just feel better. There's a difference, and this team gets it."</div>
+            <div class="meta"><strong>Running Return</strong> · Marathoner</div>
+            <div class="bucket-tag">Sport: Running</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="eyebrow">Pricing</div>
+    <h2 class="section-title">One monthly retainer.<br><em>Compounding value.</em></h2>
+    <p class="section-lead">TrustRank is a managed service — you pay for the outcome, not the hours. The longer you're on it, the more your reputation page grows.</p>
+
+    <div class="pricing-card">
+      <div class="pricing-left">
+        <h3>TrustRank Retainer</h3>
+        <p class="pricing-note">Monthly · Cancel anytime · Setup in week one</p>
+        <div class="deliverables">
+          <div class="deliverable">Reputation page built on your domain, structured and branded</div>
+          <div class="deliverable">Testimonial submission form installed on your site</div>
+          <div class="deliverable">Monthly collection, bucketing, and organization of new submissions</div>
+          <div class="deliverable">Monthly AI-quotable content written from your review themes</div>
+          <div class="deliverable">Schema markup maintained and updated monthly</div>
+          <div class="deliverable">Monthly one-page reputation report</div>
+          <div class="deliverable">Quarterly specialty page additions as content grows</div>
+        </div>
+      </div>
+
+      <div class="pricing-right">
+        <h3>How this combines with your BSP stack</h3>
+        <p>TrustRank pairs naturally with the AI Visibility Package and HelloLobby. The schema work done for your visibility package feeds directly into TrustRank. The AI receptionist that HelloLobby installs handles incoming questions — TrustRank handles the reputation content that drives people to ask.</p>
+
+        <div class="add-on-row">
+          <div class="add-on-label">TrustRank Retainer</div>
+          <div class="add-on-price">Contact for pricing</div>
+        </div>
+        <div class="add-on-row">
+          <div class="add-on-label">Setup (one-time, week 1)</div>
+          <div class="add-on-price">Included</div>
+        </div>
+        <div class="add-on-row">
+          <div class="add-on-label">Extra specialty pages</div>
+          <div class="add-on-price">Add-on available</div>
+        </div>
+        <div class="add-on-row">
+          <div class="add-on-label">Combined with HelloLobby</div>
+          <div class="add-on-price">Bundle discount</div>
+        </div>
+        <a href="#contact" class="btn-primary" style="margin-top:28px; display:block; text-align:center;">Get a Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="eyebrow">Common Questions</div>
+    <h2 class="section-title">Before you ask.</h2>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Do you scrape reviews from Google?</h4>
+        <p>Never. TrustRank is built entirely on voluntarily submitted testimonials through a form on your own website. All content is original, legitimately collected, and 100% yours.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if my patients don't want to fill out a form?</h4>
+        <p>The form is simple and short — name, service received, and their experience. In our experience, happy patients are glad to share when asked directly. We also help you write the ask — a short script for your front desk or a follow-up email.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How is this different from just adding a testimonials page?</h4>
+        <p>The difference is structure and ongoing content. A static testimonials page doesn't grow, isn't organized by specialty, and isn't written in a format AI search can quote. TrustRank is a living, structured content asset that compounds over time.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Who writes the monthly content?</h4>
+        <p>BSP writes it. You submit nothing — we take the new testimonials each month, identify themes, and write structured summary content in your voice. You review and approve before it goes live.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Where does the page live?</h4>
+        <p>On your own domain. Not a third-party review site, not a BSP subdomain. A real page at yourbusiness.com/reviews or yourbusiness.com/what-patients-say — fully under your control.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I cancel if it's not working?</h4>
+        <p>Yes, cancel anytime with 30 days notice. The page and all content stays on your site — you own everything built during your retainer. Nothing disappears when you cancel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="eyebrow">Get Started</div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2>Let's build your<br>reputation <em>asset.</em></h2>
+        <p>TrustRank is a managed monthly service — I handle everything. Get in touch and I'll show you what your reputation page could look like based on your existing reviews before you commit to anything.</p>
+
+        <div class="contact-info-row">
+          <div class="contact-info-icon">✉️</div>
+          <a href="mailto:pablo@bizsolutionspartner.com">pablo@bizsolutionspartner.com</a>
+        </div>
+        <div class="contact-info-row">
+          <div class="contact-info-icon">📍</div>
+          Calgary, Alberta — serving businesses across Canada
+        </div>
+        <div style="margin-top:28px;">
+          <a href="https://calendly.com" target="_blank" class="btn-primary">📅 Book a Discovery Call</a>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" id="trustRankForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label>Business Name</label>
+              <input type="text" placeholder="Auburn Bay Physio" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="jane@yourpractice.ca" required>
+          </div>
+          <div class="form-group">
+            <label>Your Website</label>
+            <input type="url" placeholder="https://yourpractice.ca">
+          </div>
+          <div class="form-group">
+            <label>Approx. How many Google reviews do you have?</label>
+            <select>
+              <option value="">Select...</option>
+              <option>Under 25</option>
+              <option>25–100</option>
+              <option>100–300</option>
+              <option>300+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Anything specific you want to say?</label>
+            <textarea placeholder="e.g. We have great reviews but we're not sure anyone sees them..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+          <p class="form-note">I'll come back to you within a few hours with a sample page built on your actual reviews.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <h3>Message received ✓</h3>
+          <p>I'll build a sample reputation page using your existing reviews and send it over so you can see exactly what TrustRank looks like for your business.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Your reviews deserve<br>better than a star rating.</h2>
+  <p>Turn what your patients are already saying into structured content that ranks, converts, and compounds.</p>
+  <div class="cta-band-actions">
+    <a href="#contact" class="btn-dark">Start TrustRank →</a>
+    <a href="index.html" class="btn-dark-ghost">← Back to BSP</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">BSP<span>.</span></a>
+    <ul class="footer-links">
+      <li><a href="index.html">Main Site</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#included">What's Included</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="mailto:pablo@bizsolutionspartner.com">pablo@bizsolutionspartner.com</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 BSP · Calgary, Alberta, Canada</div>
+  </div>
+</footer>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.demo-content').forEach(c => c.classList.remove('active'));
+  document.querySelector(`#tab-${id}`).classList.add('active');
+  event.target.classList.add('active');
+}
+
+document.getElementById('trustRankForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+
+<!-- Chat Widget -->
+<script>
+  (function() {
+    var w = document.createElement('script');
+    w.src = 'https://ptzbzobxwlzyiklikvee.supabase.co/functions/v1/widget-loader';
+    w.setAttribute('data-widget-key', '0caceab9-875a-4060-a5ef-85a85dec8019');
+    w.async = true;
+    document.head.appendChild(w);
+  })();
+</script>
+
+</body>
+</html>
